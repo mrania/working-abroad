@@ -1,0 +1,13 @@
+Allow the user to enter 
+1. employer's currency (3 character code)
+2. his/her own currency (3 character code) 
+3. monthly living expenses in employer's currency
+
+Get the exchange rate from Google finance or Yahoo finance
+
+Instantly compute
+1. Monthly tax payable
+2. Monthly net income (after tax and living expenses)
+3. Annual net income (after tax and living expenses)
+
+Use CSS to good effect.
