@@ -15,7 +15,7 @@
 
 			function getUnder60NetINR()
 			{
-			fxRate = document.getElementById("fx_rate").value;
+			fxRate = document.getElementById("fx_rate_SGDINR").value;
 			under60Net = document.getElementById("under60Net").value;
 			document.getElementById("under60NetINR").value=Number(under60Net) * Number(fxRate);
 			}
@@ -40,7 +40,7 @@
 
 			function getMidTaxINR()
 			{
-			fxRate = document.getElementById("fx_rate").value;
+			fxRate = document.getElementById("fx_rate_SGDINR").value;
 			monthlyTax = document.getElementById("midTax").value;
 			document.getElementById("midTaxINR").value=Number(monthlyTax) * Number(fxRate);
 			}
@@ -56,7 +56,7 @@
 
 			function getMidNetINR()
 			{
-			fxRate = document.getElementById("fx_rate").value;
+			fxRate = document.getElementById("fx_rate_SGDINR").value;
 			midNet = document.getElementById("midNet").value;
 			document.getElementById("midNetINR").value=Number(midNet) * Number(fxRate);
 			}
@@ -81,7 +81,7 @@
 
 			function getUpTaxINR()
 			{
-			fxRate = document.getElementById("fx_rate").value;
+			fxRate = document.getElementById("fx_rate_SGDINR").value;
 			monthlyTax = document.getElementById("upTax").value;
 			document.getElementById("upTaxINR").value=Number(monthlyTax) * Number(fxRate);
 			}
@@ -97,7 +97,7 @@
 
 			function getUpNetINR()
 			{
-			fxRate = document.getElementById("fx_rate").value;
+			fxRate = document.getElementById("fx_rate_SGDINR").value;
 			upNet = document.getElementById("upNet").value;
 			document.getElementById("upNetINR").value=Number(upNet) * Number(fxRate);
 			}
@@ -126,7 +126,7 @@
 
 		<form onsubmit="return false">
 		
-			<input id="fx_rate"> SGD:INR </input> <a href="http://www.google.com/finance?q=SGDINR">Check Current Exchange Rate</a><br>
+			<input id="fx_rate_SGDINR"> SGD:INR </input> <a href="http://www.google.com/finance?q=SGDINR">Check Current Exchange Rate</a><br>
 			<input id="per_month_offer_in_SGD" /> What offer are they making you? (per month)
 			<br>
 			<input id="cost_of_living_in_SGD" /> Living expenses (e.g., 1700 to 1900 per month: monthly rent (500 to 800) + food (500) + local travel (200) + Mobile phone (50))
