@@ -114,23 +114,104 @@
 			document.getElementById("upNetPAINR").value=Number(monthlyNet) * 12;
 			}
 
+			function getRate(from, to) {
+			var script = document.createElement('script');
+			script.setAttribute('src', "http://query.yahooapis.com/v1/public/yql?q=select%20rate%2Cname%20from%20csv%20where%20url%3D'http%3A%2F%2Fdownload.finance.yahoo.com%2Fd%2Fquotes%3Fs%3D"+from+to+"%253DX%26f%3Dl1n'%20and%20columns%3D'rate%2Cname'&format=json&callback=parseExchangeRate");
+			document.body.appendChild(script);
+			}
+
+			function parseExchangeRate(data) {
+			var name = data.query.results.row.name;
+			var rate = parseFloat(data.query.results.row.rate, 10);
+			alert("Exchange rate " + name + " is " + rate);
+			document.getElementById("fx_rate").value=Number(rate);
+			}
+
+			getRate("SEK", "USD");
+			//getRate("USD", "SEK");
+
+
+			function submitform()
+			{
+			//document.forms["myform"].submit();
+			homeCurr=document.getElementById("home_currency").value;
+			foreignCurr=document.getElementById("foreign_currency").value;
+			getRate(homeCurr, foreignCurr);
+			}
+
 		</script>
 
 	</head>
 
 	<body>
 		<img src="AT_logo.gif" alt="Albus Tech logo"/>
-		<h2>Quick job-offer evaluator: <mark>Singapore</mark></h2>
-		Before you take the job offer in Singapore, see the numbers yourself!
-		In India you have <mark>'low living expenses'</mark> and a <mark>'good standard of living'</mark><br><br>
+		<h2>Before going to work abroad... a Quick Evaluator:</h2>
+		Before you take the job offer abroad, check the numbers to see if it is worth going!
+		Remember, in India you have <mark>low living expenses</mark>, but with a <mark>good standard of living</mark><br><br>
 
-		<form onsubmit="return false">
-		
-			<input id="fx_rate"> SGD:INR </input> <a href="http://www.google.com/finance?q=SGDINR">Check Current Exchange Rate</a><br>
-			<input id="per_month_offer_in_SGD" /> What offer are they making you? (per month)
-			<br>
-			<input id="cost_of_living_in_SGD" /> Living expenses (e.g., 1700 to 1900 per month: monthly rent (500 to 800) + food (500) + local travel (200) + Mobile phone (50))
-			<br><br>
+		<form id="myform" onsubmit="return false">
+			<fieldset>
+				<select class="ccDbx" name="home_currency" id="home_currency" size="1" tabindex="3">
+				<option value='AUD'>AUD - Australian Dollar</option>
+				<option value='CAD'>CAD - Canadian Dollar</option>
+				<option value='CHF'>CHF - Swiss Franc</option>
+				<option value='CNY'>CNY - Chinese Yuan Renminbi</option>
+				<option value='DKK'>DKK - Danish Krone</option>
+				<option value='EUR'>EUR - Euro</option>
+				<option value='GBP'>GBP - British Pound</option>
+				<option value='HKD'>HKD - Hong Kong Dollar</option>
+				<option value='HUF'>HUF - Hungarian Forint</option>
+				<option value='INR'>INR - Indian Rupee</option>
+				<option value='JPY'>JPY - Japanese Yen</option>
+				<option value='MXN'>MXN - Mexican Peso</option>
+				<option value='MYR'>MYR - Malaysian Ringgit</option>
+				<option value='NOK'>NOK - Norwegian Krone</option>
+				<option value='NZD'>NZD - New Zealand Dollar</option>
+				<option value='PHP'>PHP - Philippine Peso</option>
+				<option value='RUB'>RUB - Russian Ruble</option>
+				<option value='SEK'>SEK - Swedish Krona</option>
+				<option value='SGD'>SGD - Singapore Dollar</option>
+				<option value='THB'>THB - Thai Baht</option>
+				<option value='TRY'>TRY - Turkish Lira</option>
+				<option value='SGD' selected="selected">SGD - Singapore Dollar</option>
+				<option value='ZAR'>ZAR - South African Rand</option>
+				</select> Employer's Currency<br>
+
+				<select class="ccDbx" name="foreign_currency" id="foreign_currency" size="1" tabindex="3">
+				<option value='AUD'>AUD - Australian Dollar</option>
+				<option value='CAD'>CAD - Canadian Dollar</option>
+				<option value='CHF'>CHF - Swiss Franc</option>
+				<option value='CNY'>CNY - Chinese Yuan Renminbi</option>
+				<option value='DKK'>DKK - Danish Krone</option>
+				<option value='EUR'>EUR - Euro</option>
+				<option value='GBP'>GBP - British Pound</option>
+				<option value='HKD'>HKD - Hong Kong Dollar</option>
+				<option value='HUF'>HUF - Hungarian Forint</option>
+				<option value='INR'>INR - Indian Rupee</option>
+				<option value='JPY'>JPY - Japanese Yen</option>
+				<option value='MXN'>MXN - Mexican Peso</option>
+				<option value='MYR'>MYR - Malaysian Ringgit</option>
+				<option value='NOK'>NOK - Norwegian Krone</option>
+				<option value='NZD'>NZD - New Zealand Dollar</option>
+				<option value='PHP'>PHP - Philippine Peso</option>
+				<option value='RUB'>RUB - Russian Ruble</option>
+				<option value='SEK'>SEK - Swedish Krona</option>
+				<option value='SGD'>SGD - Singapore Dollar</option>
+				<option value='THB'>THB - Thai Baht</option>
+				<option value='TRY'>TRY - Turkish Lira</option>
+				<option value='INR' selected="selected">INR - Indian Rupee</option>
+				<option value='ZAR'>ZAR - South African Rand</option>
+				</select> Your Currency <br>	
+
+				<input type="text" id="fx_rate"> Exchange Rate</input>
+				<a href="javascript: submitform()">Get Current Exchange Rate</a><br> 
+
+				<input id="per_month_offer_in_SGD" /> What offer are they making you? (per month)
+				<br>
+				<input id="cost_of_living_in_SGD" /> Living expenses (e.g., 1700 to 1900 per month: monthly rent (500 to 800) + food (500) + local travel (200) + Mobile phone (50))
+				<br><br>
+
+			</fieldset><br>
 
 			< 60 Days:  <br> 
 			Monthly Tax = <mark>0</mark> <br>
