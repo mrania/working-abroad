@@ -1,0 +1,15 @@
+body
+{
+	font-family:Arial,Helvetica,sans-serif;
+}
+table, td, th
+{
+	text-align:center;
+	vertical-align:center;
+	border:1px solid green;
+}
+th
+{
+	background-color:green;
+	color:white;
+}
