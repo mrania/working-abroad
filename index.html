@@ -8,10 +8,10 @@
 	</head>
 
 	<body>
-		<img src="ATlogo.gif" alt="Albus Tech logo"/>
+		<img class="logo" src="ATlogo.gif" alt="Albus Tech logo"/>
 		<h2>Before going to work abroad... a Quick Evaluator:</h2>
-		Before you take the job offer abroad, check the numbers to see if it is worth going!
-		Remember, in your home country you have <mark>low living expenses</mark>, but with a <mark>good standard of living</mark><br><br>
+		<p>Before you take the job offer abroad, check the numbers to see if it is worth going!
+		Remember, in your home country you have <mark>low living expenses</mark>, but with a <mark>good standard of living</mark></p><br><br>
 
 		<form id="myform" onsubmit="return false">
 			<fieldset>
@@ -67,7 +67,7 @@
 				<option value='ZAR'>ZAR - South African Rand</option>
 				</select> Your Currency <br>	
 
-				<input type="text" id="fx_rate"> Exchange Rate</input>
+				<input type="text" id="fx_rate"></input>
 				<a href="javascript: submitform()">Get Current Exchange Rate</a><br> 
 
 				<input id="per_month_offer_in_SGD" /> What offer are they making you? (per month)
@@ -96,24 +96,25 @@
 		</form><br>
 
 	Note for Singapore: <br>
-		<table border="2">
-		  <tr>
-			<th>Contract duration</th>
-			<th>% of Gross, payable as Tax</th>
-		  </tr>
-		  <tr>
-			<td>< 60 days</td>
-			<td>0 %</td>
-		  </tr>
-		  <tr>
-			<td>61 - 182 days</td>
-			<td>15 %</td>
-		  </tr>
-		  <tr>
-			<td>> 182 days</td>
-			<td>4-7 %</td>
-		  </tr>
+		<div class="centered"><table>
+				  <tr>
+					<th>Contract duration</th>
+					<th>% of Gross, payable as Tax</th>
+				  </tr>
+				  <tr>
+					<td>< 60 days</td>
+					<td>0 %</td>
+				  </tr>
+				  <tr>
+					<td>61 - 182 days</td>
+					<td>15 %</td>
+				  </tr>
+				  <tr>
+					<td>> 182 days</td>
+					<td>4-7 %</td>
+				  </tr>
 		</table>
+		</div>
 
 	</body>
 </html>
