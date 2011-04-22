@@ -365,10 +365,11 @@
 				<input type="text" id="fx_rate"></input>
 				<a href="javascript: submitform()">Get Current Exchange Rate</a><br> 
 
-				<input id="per_month_offer_in_SGD" /> What offer are they making you? (per month)
+				<input id="per_month_offer_in_SGD" /> What offer are they making you? (per month)<br>
+				<input id="cost_of_living_in_SGD" /> Living expenses (e.g., 1700 to 1900 per month: monthly rent (500 to 800) + food (500) + local travel (200) + Mobile phone (50))<br>
+				<input id="custom_tax_rate"> My custom tax rate (% of gross pay)</input><br>
+				<a href="http://en.wikipedia.org/wiki/Tax_rates_around_the_world" target="_blank">Check Wikipedia for Tax rates around the world</a> (will open in new window)<br> 
 				<br>
-				<input id="cost_of_living_in_SGD" /> Living expenses (e.g., 1700 to 1900 per month: monthly rent (500 to 800) + food (500) + local travel (200) + Mobile phone (50))
-				<br><br>
 
 			</fieldset><br>
 
@@ -416,6 +417,15 @@
 							<td><mark> <output id="upNetINR" onforminput="getUpNetINR()"></output></mark></td>
 							<td><mark> <output id="upNetPA" onforminput="getUpNetPA()"></output> </mark></td>
 							<td><mark> <output id="upNetPAINR" onforminput="getUpNetPAINR()"></output> </mark></td>
+						  </tr>
+							<td> -</td>
+							<td><output id="custom_tax_rate"> </output></td>
+							<td><mark><output id="customTax" onforminput="getCustomTax()"></output></mark></td>
+							<td><mark><output id="customTaxINR" onforminput="getCustomTaxINR()"></output></mark></td>
+							<td><mark> <output id="customNet" onforminput="getCustomNet()"></output></mark></td>
+							<td><mark> <output id="customNetINR" onforminput="getCustomNetINR()"></output></mark></td>
+							<td><mark> <output id="customNetPA" onforminput="getCustomNetPA()"></output> </mark></td>
+							<td><mark> <output id="customNetPAINR" onforminput="getCustomNetPAINR()"></output> </mark></td>
 						  </tr>
 				</table>
 			</div>

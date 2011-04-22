@@ -108,6 +108,49 @@ function getUpNetPAINR()
 	document.getElementById("upNetPAINR").value=Number(monthlyNet) * 12;
 }
 
+function getCustomTax()
+{
+	monthlyTax = document.getElementById("per_month_offer_in_SGD").value;
+	customTaxRate = document.getElementById("custom_tax_rate").value;
+	document.getElementById("customTax").value=Number(monthlyTax) * customTaxRate / 100;
+}
+
+function getCustomTaxINR()
+{
+	fxRate = document.getElementById("fx_rate").value;
+	monthlyTax = document.getElementById("customTax").value;
+	document.getElementById("customTaxINR").value=Number(monthlyTax) * Number(fxRate);
+}
+
+function getCustomNet()
+{
+	monthlyGross = document.getElementById("per_month_offer_in_SGD").value;
+	livingExpenses = document.getElementById("cost_of_living_in_SGD").value;
+	customTaxRate = document.getElementById("custom_tax_rate").value;
+	tax = monthlyGross * customTaxRate / 100;
+	document.getElementById("customNet").value=Number(monthlyGross) - Number(livingExpenses) - Number(tax);
+	document.getElementById("customNetINR").value=Number(customNet) * Number(fxRate);
+}
+
+function getCustomNetINR()
+{
+	fxRate = document.getElementById("fx_rate").value;
+	customNet = document.getElementById("customNet").value;
+	document.getElementById("customNetINR").value=Number(customNet) * Number(fxRate);
+}
+
+function getCustomNetPA()
+{
+	monthlyNet = document.getElementById("customNet").value;
+	document.getElementById("customNetPA").value=Number(monthlyNet) * 12;
+}
+
+function getCustomNetPAINR()
+{
+	monthlyNet = document.getElementById("customNetINR").value;
+	document.getElementById("customNetPAINR").value=Number(monthlyNet) * 12;
+}
+
 function getRate(from, to) 
 {
 	var script = document.createElement('script');
